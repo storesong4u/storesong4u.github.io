@@ -161,7 +161,7 @@
       padding:52px 24px;
     }
     .stats-grid { max-width:800px; margin:0 auto; display:flex; justify-content:center; flex-wrap:wrap; }
-    .stat-item { flex:1; min-width:150px; text-align:center; padding:16px 24px; border-right:1px solid rgba(249,115,22,.15); }
+    .stat-item { flex:1; min-width:150px; text-align:center; padding:16px 24px; border-right:1px solid rgba(249,115,22,.15); display:flex; flex-direction:column; justify-content:center; align-items:center; }
     .stat-item:last-child { border-right:none; }
     .stat-num { font-family:'Noto Serif KR',serif; font-size:2rem; font-weight:600; color:var(--amber-light); }
     .stat-label { font-size:.78rem; color:var(--cream-dim); letter-spacing:.1em; margin-top:4px; }
@@ -260,6 +260,14 @@
     .contact-card a { color:var(--orange-soft); text-decoration:none; font-size:.92rem; font-weight:600; }
     .contact-card a:hover { color:var(--amber-light); }
 
+    .cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    .form-btn {
+      display:inline-flex; align-items:center; gap:10px;
+      background:var(--orange); color:#fff; font-weight:700;
+      padding:16px 40px; border-radius:99px; text-decoration:none;
+      font-size:1rem; box-shadow:0 6px 24px rgba(249,115,22,.3); transition:transform .2s, box-shadow .2s;
+    }
+    .form-btn:hover { transform:translateY(-2px); box-shadow:0 10px 32px rgba(249,115,22,.5); }
     .kakao-btn {
       display:inline-flex; align-items:center; gap:10px;
       background:#FAE100; color:#3C1E1E; font-weight:700;
@@ -282,9 +290,14 @@
     @media(max-width:640px){
       .process-grid { grid-template-columns:1fr 1fr; }
       .process-grid::before { display:none; }
-      .stats-grid { flex-direction:column; }
-      .stat-item { border-right:none; border-bottom:1px solid rgba(249,115,22,.12); }
+      .stats-grid { flex-direction:row; flex-wrap:wrap; }
+      .stats-grid { display:grid; grid-template-columns:1fr 1fr; }
+      .stat-item { width:auto; box-sizing:border-box; border-right:none; border-bottom:1px solid rgba(249,115,22,.12); display:flex; flex-direction:column; justify-content:center; align-items:center; }
       .price-wrap { padding:36px 24px; }
+      .service-grid { grid-template-columns:1fr 1fr; gap:10px; }
+      .service-card { padding:20px 14px; }
+      .usage-grid { grid-template-columns:1fr 1fr; gap:10px; }
+      .usage-card { padding:20px 14px; }
     }
   </style>
 </head>
@@ -297,7 +310,7 @@
     <a href="#usage" onclick="closeMobileMenu()">활용범위</a>
     <a href="#pricing" onclick="closeMobileMenu()">가격</a>
     <a href="#contact" onclick="closeMobileMenu()">문의</a>
-    <a href="https://forms.gle/storesong4uForm" target="_blank" class="mob-cta" onclick="closeMobileMenu()">✉ 신청하기</a>
+    <a href="https://forms.gle/storesong4uForm" target="_blank" class="mob-cta" onclick="closeMobileMenu()">📋 신청하기</a>
   </div>
 
   <nav>
@@ -344,7 +357,7 @@
           가게에는 차별화된 브랜드 자산이 됩니다.
         </p>
         <div class="hero-actions">
-          <a href="https://forms.gle/storesong4uForm" target="_blank" class="btn-primary">✉ 지금 신청하기</a>
+          <a href="https://forms.gle/storesong4uForm" target="_blank" class="btn-primary">📋 지금 신청하기</a>
           <a href="#services" class="btn-outline">서비스 알아보기 ↓</a>
         </div>
         <div class="hero-icons">
@@ -363,8 +376,8 @@
     <div class="stats-grid">
       <div class="stat-item"><div class="stat-num">7~10일</div><div class="stat-label">제작 기간</div></div>
       <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">맞춤 제작</div></div>
-      <div class="stat-item"><div class="stat-num">무제한</div><div class="stat-label">매장 송출</div></div>
-      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">저작권 고객 귀속</div></div>
+      <div class="stat-item"><div class="stat-num" style="font-size:1.45rem; white-space:nowrap;">Online/Offline</div><div class="stat-label">사용 제한 없음</div></div>
+      <div class="stat-item"><div class="stat-num">영구적</div><div class="stat-label">저작권 고객 귀속</div></div>
     </div>
   </div>
 
@@ -395,7 +408,7 @@
         <div class="process-step"><div class="step-circle">1</div><h3>사연 접수</h3><p>구글폼 또는 카카오 오픈채팅으로 가게 이야기와 원하시는 방향을 알려주세요.</p></div>
         <div class="process-step"><div class="step-circle">2</div><h3>가사 작업</h3><p>브랜드 철학과 스토리를 담은 시적인 가사를 작성합니다.</p></div>
         <div class="process-step"><div class="step-circle">3</div><h3>작곡 및 제작</h3><p>가사에 어울리는 멜로디와 편곡으로 완성도 높은 노래를 만듭니다.</p></div>
-        <div class="process-step"><div class="step-circle">4</div><h3>완성본 전달</h3><p>MP3 파일 및 사장님 전용 비공개 링크로 전달. 제작 기간 약 5~7일.</p></div>
+        <div class="process-step"><div class="step-circle">4</div><h3>완성본 전달</h3><p>MP3 파일 및 사장님 전용 비공개 링크로 전달. 제작 기간 약 7~10일.</p></div>
       </div>
     </div>
   </section>
@@ -434,10 +447,10 @@
           <li>매장 내 무제한 송출 가능</li>
           <li>SNS · 홈페이지 홍보 활용 자유</li>
           <li>저작권 100% 고객(사장님)께 귀속</li>
-          <li>제작 기간 약 5~7일</li>
+          <li>제작 기간 약 7~10일</li>
         </ul>
         <p class="price-account">입금 계좌: 카카오뱅크 3333-03-2420702 (한성운)</p>
-        <a href="https://forms.gle/storesong4uForm" target="_blank" class="btn-primary" style="font-size:.95rem; padding:14px 40px;">✉ 지금 신청하기</a>
+        <a href="https://forms.gle/storesong4uForm" target="_blank" class="btn-primary" style="font-size:.95rem; padding:14px 40px;">📋 지금 신청하기</a>
       </div>
     </div>
   </section>
@@ -452,10 +465,15 @@
         <div class="contact-card"><div class="contact-icon">💬</div><h4>카카오 오픈채팅</h4><a href="https://open.kakao.com/me/storesong4u" target="_blank">바로 문의하기 →</a></div>
         <div class="contact-card"><div class="contact-icon">📺</div><h4>유튜브 채널</h4><a href="https://www.youtube.com/@storesong4u" target="_blank">샘플 듣기 →</a></div>
       </div>
-      <a href="https://open.kakao.com/me/storesong4u" target="_blank" class="kakao-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.48 3 2 6.92 2 11.7c0 3.05 1.8 5.73 4.54 7.3l-1.16 4.3 4.98-3.27c.52.07 1.06.1 1.64.1 5.52 0 10-3.92 10-8.7C22 6.92 17.52 3 12 3z"/></svg>
-        카카오 오픈채팅 문의
-      </a>
+      <div class="cta-btns">
+        <a href="https://forms.gle/storesong4uForm" target="_blank" class="form-btn">
+          📋 신청서 작성하기
+        </a>
+        <a href="https://open.kakao.com/me/storesong4u" target="_blank" class="kakao-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.48 3 2 6.92 2 11.7c0 3.05 1.8 5.73 4.54 7.3l-1.16 4.3 4.98-3.27c.52.07 1.06.1 1.64.1 5.52 0 10-3.92 10-8.7C22 6.92 17.52 3 12 3z"/></svg>
+          카카오 오픈채팅 문의
+        </a>
+      </div>
       <p style="margin-top:48px; font-size:.82rem; color:var(--cream-dim); line-height:2;">
         좋은 가게는 좋은 이야기를 가지고 있습니다.<br>
         스토어송포유는 그 이야기를 고객의 기억 속에 남을 노래로 만들어 드립니다.
